@@ -6,7 +6,7 @@ import com.codeborne.selenide.SelenideElement;
 import static com.codeborne.selenide.Selenide.$$x;
 import static com.codeborne.selenide.Selenide.$x;
 
-public class CartPage extends AbstractPage {
+public class CartPage extends BasketPage {
 
     private SelenideElement checkoutButton = $x("//button[@data-test = 'checkout']");
     private ElementsCollection removeButton = $$x("//button[contains(@data-test, 'remove')]");

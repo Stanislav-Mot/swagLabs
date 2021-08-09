@@ -4,7 +4,7 @@ import utils.Products;
 
 import static com.codeborne.selenide.Selenide.$x;
 
-public class InventoryPage extends AbstractPage {
+public class InventoryPage extends BasketPage {
 
     public static String URL = "https://www.saucedemo.com/inventory.html";
 

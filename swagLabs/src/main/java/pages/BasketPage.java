@@ -4,7 +4,7 @@ import com.codeborne.selenide.SelenideElement;
 
 import static com.codeborne.selenide.Selenide.$x;
 
-public class AbstractPage {
+public class BasketPage {
 
     private SelenideElement basketButton = $x("//a[@class = 'shopping_cart_link']");
 

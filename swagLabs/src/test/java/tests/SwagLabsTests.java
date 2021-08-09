@@ -9,11 +9,13 @@ import pages.CheckoutStepTwoPage;
 import pages.InventoryPage;
 import pages.LoginPage;
 
+import java.io.IOException;
+
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static utils.Products.*;
 import static utils.TestData.*;
 
-public class SwagLabsTests extends BaseWebTest {
+public class SwagLabsTests extends Driver {
 
     private LoginPage loginPage = new LoginPage();
     private InventoryPage inventoryPage = new InventoryPage();
@@ -38,7 +40,7 @@ public class SwagLabsTests extends BaseWebTest {
 
     @ParameterizedTest
     @MethodSource("loginValue")
-    public void buyTest(String value) {
+    public void buyTest(String value) throws IOException {
         loginPage.loginToAccount(value);
         String actual = inventoryPage.clickAddingButton(SAUCE_LABS_BACKPACK)
                 .clickAddingButton(SAUCE_LABS_BIKE_LIGHT)
@@ -48,7 +50,7 @@ public class SwagLabsTests extends BaseWebTest {
                 .clickAddingButton(ALL_THE_THINGS)
                 .clickBasketButton()
                 .clickCheckoutButton()
-                .enterFieldForCheckout(map)
+                .enterFieldForCheckout()
                 .clickContinueButton()
                 .clickFinishButton()
                 .getSuccessfullyOrderText();
@@ -58,7 +60,7 @@ public class SwagLabsTests extends BaseWebTest {
 
     @ParameterizedTest
     @MethodSource("loginValue")
-    public void cancelBuyTest(String value) {
+    public void cancelBuyTest(String value) throws IOException {
         loginPage.loginToAccount(value);
         inventoryPage.clickAddingButton(SAUCE_LABS_BACKPACK)
                 .clickAddingButton(SAUCE_LABS_BIKE_LIGHT)
@@ -68,7 +70,7 @@ public class SwagLabsTests extends BaseWebTest {
                 .clickAddingButton(ALL_THE_THINGS)
                 .clickBasketButton()
                 .clickCheckoutButton()
-                .enterFieldForCheckout(map)
+                .enterFieldForCheckout()
                 .clickContinueButton()
                 .clickCancelButton();
 
@@ -95,7 +97,7 @@ public class SwagLabsTests extends BaseWebTest {
 
     @ParameterizedTest
     @MethodSource("loginValue")
-    public void sumProductsTest(String value) {
+    public void sumProductsTest(String value) throws IOException {
         loginPage.loginToAccount(value);
         CheckoutStepTwoPage checkoutStepTwoPage = new CheckoutStepTwoPage();
         inventoryPage.clickAddingButton(SAUCE_LABS_BACKPACK)
@@ -106,7 +108,7 @@ public class SwagLabsTests extends BaseWebTest {
                 .clickAddingButton(ALL_THE_THINGS)
                 .clickBasketButton()
                 .clickCheckoutButton()
-                .enterFieldForCheckout(map)
+                .enterFieldForCheckout()
                 .clickContinueButton();
 
         Assertions.assertEquals(checkoutStepTwoPage.sumOrder(), checkoutStepTwoPage.getTotalSum(),

@@ -4,9 +4,9 @@ import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 
-import static com.codeborne.selenide.Selenide.closeWebDriver;
+import static com.codeborne.selenide.WebDriverRunner.closeWebDriver;
 
-public class BaseWebTest {
+public class Driver {
 
     @BeforeEach
     public void setUp() {
@@ -14,7 +14,7 @@ public class BaseWebTest {
     }
 
     @AfterEach
-    public void tearDown() {
+    public void turnDown() {
         closeWebDriver();
     }
 
