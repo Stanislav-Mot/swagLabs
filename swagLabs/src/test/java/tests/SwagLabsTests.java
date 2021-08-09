@@ -35,7 +35,7 @@ public class SwagLabsTests extends Driver {
         loginPage.loginToAccount(value);
 
         Assertions.assertEquals(InventoryPage.URL,
-                getWebDriver().getCurrentUrl(),"Wrong address");
+                getWebDriver().getCurrentUrl(), "Wrong address");
     }
 
     @ParameterizedTest
@@ -55,7 +55,7 @@ public class SwagLabsTests extends Driver {
                 .clickFinishButton()
                 .getSuccessfullyOrderText();
 
-        Assertions.assertEquals(welcomeMessage, actual,"Buy failed");
+        Assertions.assertEquals(welcomeMessage, actual, "Buy failed");
     }
 
     @ParameterizedTest

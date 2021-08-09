@@ -32,7 +32,7 @@ public class LoginPage {
         open(URL);
     }
 
-    public InventoryPage loginToAccount(String login){
+    public InventoryPage loginToAccount(String login) {
         enterLogin(login).enterPassword(TestData.password).clickLoginButton();
         return new InventoryPage();
     }
