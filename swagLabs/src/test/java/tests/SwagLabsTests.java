@@ -50,7 +50,7 @@ public class SwagLabsTests extends Driver {
                 .clickAddingButton(ALL_THE_THINGS)
                 .clickBasketButton()
                 .clickCheckoutButton()
-                .enterFieldForCheckout()
+                .enterFieldForCheckout("field.firstName", "field.lastName", "field.zip")
                 .clickContinueButton()
                 .clickFinishButton()
                 .getSuccessfullyOrderText();
@@ -70,7 +70,7 @@ public class SwagLabsTests extends Driver {
                 .clickAddingButton(ALL_THE_THINGS)
                 .clickBasketButton()
                 .clickCheckoutButton()
-                .enterFieldForCheckout()
+                .enterFieldForCheckout("field.firstName", "field.lastName", "field.zip")
                 .clickContinueButton()
                 .clickCancelButton();
 
@@ -108,7 +108,7 @@ public class SwagLabsTests extends Driver {
                 .clickAddingButton(ALL_THE_THINGS)
                 .clickBasketButton()
                 .clickCheckoutButton()
-                .enterFieldForCheckout()
+                .enterFieldForCheckout("field.firstName", "field.lastName", "field.zip")
                 .clickContinueButton();
 
         Assertions.assertEquals(checkoutStepTwoPage.sumOrder(), checkoutStepTwoPage.getTotalSum(),

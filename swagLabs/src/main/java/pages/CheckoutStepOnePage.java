@@ -15,12 +15,12 @@ public class CheckoutStepOnePage extends BasketPage {
     private SelenideElement postalCode = $x("//input[@data-test = 'postalCode']");
     private SelenideElement continueButton = $x("//input[@data-test = 'continue']");
 
-    public CheckoutStepOnePage enterFieldForCheckout() throws IOException {
+    public CheckoutStepOnePage enterFieldForCheckout(String name, String surname, String zip) throws IOException {
         Properties properties = new Properties();
         properties.load(new FileInputStream("src/main/resources/field.properties"));
-        firstName.sendKeys(properties.getProperty("field.firstName"));
-        lastName.sendKeys(properties.getProperty("field.lastName"));
-        postalCode.sendKeys(properties.getProperty("field.zip"));
+        firstName.sendKeys(properties.getProperty(name));
+        lastName.sendKeys(properties.getProperty(surname));
+        postalCode.sendKeys(properties.getProperty(zip));
         return this;
     }
 
