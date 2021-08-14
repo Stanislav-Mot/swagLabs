@@ -1,5 +1,6 @@
 package tests;
 
+import io.qameta.allure.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -29,6 +30,9 @@ public class SwagLabsTests extends Driver {
         return new Object[]{standardUser, lockedOutUser, problemUser, performanceGlitchUser};
     }
 
+    @Feature("Blocker")
+    @Description("Login")
+    @Severity(SeverityLevel.BLOCKER)
     @ParameterizedTest
     @MethodSource("loginValue")
     public void loginTest(String value) {
@@ -38,6 +42,9 @@ public class SwagLabsTests extends Driver {
                 getWebDriver().getCurrentUrl(), "Wrong address");
     }
 
+    @Feature("Blocker")
+    @Description("Buy")
+    @Severity(SeverityLevel.BLOCKER)
     @ParameterizedTest
     @MethodSource("loginValue")
     public void buyTest(String value) throws IOException {
@@ -58,6 +65,9 @@ public class SwagLabsTests extends Driver {
         Assertions.assertEquals(welcomeMessage, actual, "Buy failed");
     }
 
+    @Feature("Blocker")
+    @Description("Cancel")
+    @Severity(SeverityLevel.BLOCKER)
     @ParameterizedTest
     @MethodSource("loginValue")
     public void cancelBuyTest(String value) throws IOException {
@@ -78,6 +88,9 @@ public class SwagLabsTests extends Driver {
                 "Wrong inventory address");
     }
 
+    @Flaky
+    @Description("Removing")
+    @Severity(SeverityLevel.CRITICAL)
     @ParameterizedTest
     @MethodSource("loginValue")
     public void removingProductsTest(String value) {
@@ -95,6 +108,10 @@ public class SwagLabsTests extends Driver {
                 "The basket has products");
     }
 
+    @Feature("Blocker")
+    @Flaky
+    @Description("Sum of products")
+    @Severity(SeverityLevel.BLOCKER)
     @ParameterizedTest
     @MethodSource("loginValue")
     public void sumProductsTest(String value) throws IOException {

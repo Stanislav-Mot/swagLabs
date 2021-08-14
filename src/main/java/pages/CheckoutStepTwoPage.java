@@ -2,6 +2,7 @@ package pages;
 
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -15,11 +16,13 @@ public class CheckoutStepTwoPage extends BasketPage {
     private SelenideElement totalSum = $x("//div[@class = 'summary_subtotal_label']");
     private ElementsCollection inventoryPrice = $$x("//div[@class = 'inventory_item_price']");
 
+    @Step("Clicking the button of finish")
     public CheckoutCompletePage clickFinishButton() {
         finishButton.click();
         return new CheckoutCompletePage();
     }
 
+    @Step("Clicking the button of cancel")
     public InventoryPage clickCancelButton() {
         cancelButton.click();
         return new InventoryPage();

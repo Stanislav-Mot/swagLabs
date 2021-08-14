@@ -1,6 +1,8 @@
 package pages;
 
+
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 import utils.TestData;
 
 import static com.codeborne.selenide.Selenide.$x;
@@ -32,6 +34,7 @@ public class LoginPage {
         open(URL);
     }
 
+    @Step("Checking the enter of user")
     public InventoryPage loginToAccount(String login) {
         enterLogin(login).enterPassword(TestData.password).clickLoginButton();
         return new InventoryPage();

@@ -14,7 +14,7 @@ public class Driver {
     }
 
     @AfterEach
-    public void turnDown() {
+    public void tearDown() {
         closeWebDriver();
     }
 
